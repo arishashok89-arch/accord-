@@ -1,29 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accord booking website</title> 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCORD Hotel Booking</title>
 
-    <style>
-        *{
-            
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {font-family:Arial,sans-serif;background:#f5f7fa;color:#222;}
-       body{font-family:Arial,sans-serif;background:#f5f7fa;color:#222}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f5f7fa;color:#222}
 .navbar{background:#003b95;padding:17px 0}
 .navbar-brand{font-size:27px;font-weight:bold;color:white!important}
 .nav-link{color:white!important;margin-left:13px}
 .nav-link:hover,.nav-link.active{color:#feba02!important}
 .btn-yellow{background:#feba02;color:#003b95;font-weight:bold;border:0;padding:12px 25px}
 .btn-yellow:hover{background:#e9a900;color:#003b95}
-.hero{background:linear-gradient(#001e50aa,#001e50aa),url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600') center/cover;min-height:520px;color:white;display:flex;align-items:center}
+.hero{background:linear-gradient(#001e50aa,#001e50aa),url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600') center/cover;min-height:450px;color:white;display:flex;align-items:center}
 .hero h1{font-size:48px;font-weight:bold}
 .search-box{background:#feba02;padding:10px;border-radius:9px;margin-top:30px}
 .search-box input,.search-box select{height:53px;width:100%;border:0;border-radius:5px;padding:10px}
@@ -62,21 +58,36 @@ footer a{color:#ddd;text-decoration:none;display:block;margin-bottom:10px}
 footer a:hover{color:#feba02}
 .social a{display:inline-block;font-size:22px;margin-right:13px}
 .footer-bottom{border-top:1px solid #ffffff33;margin-top:35px;padding-top:20px}
+
+/* CAROUSEL */
+.carousel-item{height:480px;position:relative}
+.carousel-item img{height:480px;width:100%;object-fit:cover;filter:brightness(65%)}
+.carousel-caption{bottom:100px}
+.carousel-caption h2{font-size:42px;font-weight:bold}
+.carousel-caption p{font-size:18px}
+.carousel-indicators [data-bs-target]{width:35px;height:5px;border-radius:5px}
+.hotel-carousel .carousel-item,.hotel-carousel .carousel-item img{height:380px}
+
 @media(max-width:768px){
 .hero h1{font-size:34px}
-.hero{min-height:650px}
+.hero{min-height:600px}
 .inner-hero h1{font-size:32px}
 .offer{padding:25px}
+.carousel-item,.carousel-item img{height:350px}
+.carousel-caption{bottom:35px}
+.carousel-caption h2{font-size:27px}
+.carousel-caption p{font-size:14px}
+.hotel-carousel .carousel-item,.hotel-carousel .carousel-item img{height:280px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
 <div class="container">
-<a class="navbar-brand" href="#" onclick="showPage(1)">Accord.</a>
+<a class="navbar-brand" href="#" onclick="showPage(1)">ACCORD.</a>
 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
 <span class="navbar-toggler-icon"></span>
 </button>
@@ -86,190 +97,191 @@ footer a:hover{color:#feba02}
 <li class="nav-item"><a class="nav-link" href="#" onclick="showPage(2)">Hotels</a></li>
 <li class="nav-item"><a class="nav-link" href="#" onclick="showPage(3)">About Us</a></li>
 <li class="nav-item"><a class="nav-link" href="#" onclick="showPage(3);setTimeout(()=>document.getElementById('contact').scrollIntoView(),100)">Contact</a></li>
-<li class="nav-item ms-lg-3"><button class="btn btn-yellow" onclick="alert('Welcome to Accord!')">Register</button></li>
+<li class="nav-item ms-lg-3"><button class="btn btn-yellow" onclick="alert('Welcome to ACCORD!')">Register</button></li>
 </ul>
 </div>
 </div>
 </nav>
 
-<!-- ================= PAGE 1 ================= -->
+<!-- PAGE 1 -->
 <div class="page active" id="page1">
 
-<section class="hero">
-<div class="container">
-<div data-aos="fade-up">
-<h1>Find Your Perfect Stay</h1>
-<p class="fs-5">Discover amazing hotels, resorts and destinations around the world.</p>
-<p><i class="bi bi-check-circle"></i> Best Prices &nbsp; <i class="bi bi-check-circle"></i> Easy Booking &nbsp; <i class="bi bi-check-circle"></i> 24/7 Support</p>
+<!-- HOME CAROUSEL -->
+<div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"></button>
+<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
+<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+<button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="3"></button>
+</div>
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600" class="d-block w-100" alt="Luxury hotel">
+<div class="carousel-caption">
+<h2>Discover Luxury Hotels</h2>
+<p>Experience comfort and unforgettable hospitality.</p>
+<button class="btn btn-yellow" onclick="showPage(2)">Explore Hotels</button>
+</div>
 </div>
 
-<div class="search-box" data-aos="fade-up">
+<div class="carousel-item">
+<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1600" class="d-block w-100" alt="Resort">
+<div class="carousel-caption">
+<h2>Enjoy Your Dream Holiday</h2>
+<p>Find beautiful resorts for your perfect vacation.</p>
+<button class="btn btn-yellow" onclick="showPage(2)">Book Your Stay</button>
+</div>
+</div>
+
+<div class="carousel-item">
+<img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=1600" class="d-block w-100" alt="Beach">
+<div class="carousel-caption">
+<h2>Explore Beautiful Destinations</h2>
+<p>Travel around the world and create wonderful memories.</p>
+<button class="btn btn-yellow" onclick="showPage(2)">Discover More</button>
+</div>
+</div>
+
+<div class="carousel-item">
+<img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1600" class="d-block w-100" alt="Maldives">
+<div class="carousel-caption">
+<h2>Escape to Paradise</h2>
+<p>Find your favourite luxury destination.</p>
+<button class="btn btn-yellow" onclick="showPage(2)">View Hotels</button>
+</div>
+</div>
+
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+</div>
+
+<!-- SEARCH -->
+<section class="hero">
+<div class="container">
+<h1>Find Your Perfect Stay</h1>
+<p class="fs-5">Discover amazing hotels, resorts and destinations around the world.</p>
+<p>✓ Best Prices &nbsp; ✓ Easy Booking &nbsp; ✓ 24/7 Support</p>
+<div class="search-box">
 <div class="row g-2">
 <div class="col-lg-3 col-md-6"><input id="destination" placeholder="Where are you going?"></div>
 <div class="col-lg-2 col-md-6"><input type="date" id="checkin"></div>
 <div class="col-lg-2 col-md-6"><input type="date" id="checkout"></div>
 <div class="col-lg-2 col-md-6">
 <select id="guests">
-<option>1 Guest</option><option selected>2 Guests</option>
-<option>3 Guests</option><option>4 Guests</option>
+<option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option>
 </select>
 </div>
-<div class="col-lg-3">
-<button class="btn btn-primary w-100 h-100" onclick="searchHotels()"> <i class="bi bi-search"></i> Search Hotels</button>
-</div>
+<div class="col-lg-3"><button class="btn btn-primary w-100 h-100" onclick="searchHotels()">Search Hotels</button></div>
 </div>
 </div>
 </div>
 </section>
 
+<!-- DESTINATIONS -->
 <section class="section">
 <div class="container">
 <h2 class="section-title">Explore Popular Destinations</h2>
 <p class="section-subtitle">Find your next favourite holiday destination.</p>
 <div class="row g-4">
-<div class="col-md-6" data-aos="zoom-in">
-<div class="destination"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800"><h3>Goa, India</h3></div>
-</div>
-<div class="col-md-6" data-aos="zoom-in">
-<div class="destination"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800"><h3>Bali, Indonesia</h3></div>
-</div>
-<div class="col-md-4" data-aos="zoom-in">
-<div class="destination"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800"><h3>Dubai</h3></div>
-</div>
-<div class="col-md-4" data-aos="zoom-in">
-<div class="destination"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800"><h3>Manali</h3></div>
-</div>
-<div class="col-md-4" data-aos="zoom-in">
-<div class="destination"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800"><h3>Maldives</h3></div>
-</div>
+<div class="col-md-6"><div class="destination"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800" alt="Goa"><h3>Goa, India</h3></div></div>
+<div class="col-md-6"><div class="destination"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800" alt="Bali"><h3>Bali, Indonesia</h3></div></div>
+<div class="col-md-4"><div class="destination"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800" alt="Dubai"><h3>Dubai</h3></div></div>
+<div class="col-md-4"><div class="destination"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800" alt="Manali"><h3>Manali</h3></div></div>
+<div class="col-md-4"><div class="destination"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800" alt="Maldives"><h3>Maldives</h3></div></div>
 </div>
 </div>
 </section>
 
+<!-- FEATURED HOTELS -->
 <section class="section bg-light">
 <div class="container">
 <h2 class="section-title">Popular Hotel Deals</h2>
-<p class="section-subtitle">Discover some of our favourite properties.</p>
+<p class="section-subtitle">Discover our favourite properties.</p>
 <div class="row g-4">
-
-<div class="col-md-4"><div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800">
-<div class="hotel-info"><span class="rating">9.2</span><h5>Ocean View Resort</h5><p>Goa, India</p><span class="price">₹4,500</span> / night</div>
-</div></div>
-
-<div class="col-md-4"><div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800">
-<div class="hotel-info"><span class="rating">9.5</span><h5>Paradise Luxury Hotel</h5><p>Bali, Indonesia</p><span class="price">₹6,800</span> / night</div>
-</div></div>
-
-<div class="col-md-4"><div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800">
-<div class="hotel-info"><span class="rating">9.0</span><h5>Grand Palace Hotel</h5><p>Dubai, UAE</p><span class="price">₹8,500</span> / night</div>
-</div></div>
-
+<div class="col-md-4"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800" alt="Ocean View"><div class="hotel-info"><span class="rating">9.2</span><h5>Ocean View Resort</h5><p>Goa, India</p><span class="price">₹4,500</span> / night</div></div></div>
+<div class="col-md-4"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Paradise Hotel"><div class="hotel-info"><span class="rating">9.5</span><h5>Paradise Luxury Hotel</h5><p>Bali, Indonesia</p><span class="price">₹6,800</span> / night</div></div></div>
+<div class="col-md-4"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800" alt="Grand Palace"><div class="hotel-info"><span class="rating">9.0</span><h5>Grand Palace Hotel</h5><p>Dubai, UAE</p><span class="price">₹8,500</span> / night</div></div></div>
 </div>
-<div class="text-center mt-4">
-<button class="btn btn-primary px-5" onclick="showPage(2)">Explore All Hotels <i class="bi bi-arrow-right"></i></button>
-</div>
+<div class="text-center mt-4"><button class="btn btn-primary px-5" onclick="showPage(2)">Explore All Hotels →</button></div>
 </div>
 </section>
 
+<!-- OFFER -->
 <section class="section">
 <div class="container">
 <div class="offer">
 <div class="row align-items-center">
-<div class="col-md-8">
-<h2>Special Holiday Offers!</h2>
-<p>Enjoy amazing stays and exclusive deals on selected properties.</p>
-<h4>Save up to 30% on selected stays.</h4>
-</div>
+<div class="col-md-8"><h2>Special Holiday Offers!</h2><p>Enjoy amazing stays and exclusive deals.</p><h4>Save up to 30% on selected stays.</h4></div>
 <div class="col-md-4 text-center"><i class="bi bi-gift" style="font-size:90px;color:#feba02"></i></div>
 </div>
 </div>
 </div>
 </section>
-
 </div>
 
-<!-- ================= PAGE 2 ================= -->
+<!-- PAGE 2 -->
 <div class="page" id="page2">
 
 <section class="inner-hero">
+<div class="container"><h1>Explore Our Hotels</h1><p>Find the perfect accommodation for every journey.</p></div>
+</section>
+
+<!-- HOTEL CAROUSEL -->
+<section class="section">
 <div class="container">
-<h1>Explore Our Hotels</h1>
-<p class="fs-5">Find the perfect accommodation for every journey.</p>
+<h2 class="section-title text-center">Featured Luxury Hotels</h2>
+<p class="section-subtitle text-center">Explore our handpicked hotel collections.</p>
+
+<div id="hotelCarousel" class="carousel slide hotel-carousel" data-bs-ride="carousel" data-bs-interval="3000">
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="0" class="active"></button>
+<button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="1"></button>
+<button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="2"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200" class="d-block w-100" alt="Grand luxury hotel">
+<div class="carousel-caption"><h2>Grand Luxury Hotels</h2><p>Enjoy premium hospitality and elegant rooms.</p></div>
+</div>
+<div class="carousel-item">
+<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200" class="d-block w-100" alt="Resort pool">
+<div class="carousel-caption"><h2>Beautiful Resort Stays</h2><p>Relax with amazing views and swimming pools.</p></div>
+</div>
+<div class="carousel-item">
+<img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200" class="d-block w-100" alt="Maldives resort">
+<div class="carousel-caption"><h2>Beachside Paradise</h2><p>Discover beautiful oceanfront properties.</p></div>
+</div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+<button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+</div>
 </div>
 </section>
 
+<!-- HOTEL LIST -->
 <section class="section">
 <div class="container">
 <h2 class="section-title">All Available Hotels</h2>
-<p class="section-subtitle">Explore our selected hotels, resorts and luxury properties.</p>
-
+<p class="section-subtitle">Explore our selected hotels and resorts.</p>
 <div class="row g-4" id="hotelList">
 
-<div class="col-lg-4 col-md-6 hotel-item" data-city="goa">
-<div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800">
-<div class="hotel-info"><span class="rating">9.2 Excellent</span>
-<h5>Ocean View Resort</h5><p><i class="bi bi-geo-alt"></i> Goa, India</p>
-<p><i class="bi bi-wifi"></i> WiFi | Swimming Pool | Restaurant</p>
-<p class="text-success">Free cancellation available</p>
-<span class="price">₹4,500</span> / night
-<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Ocean View Resort')">Book Now</button>
-</div></div></div>
+<div class="col-lg-4 col-md-6 hotel-item" data-city="goa"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800" alt="Goa hotel"><div class="hotel-info"><span class="rating">9.2 Excellent</span><h5>Ocean View Resort</h5><p>Goa, India</p><p>WiFi | Pool | Restaurant</p><p class="text-success">Free cancellation available</p><span class="price">₹4,500</span> / night<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Ocean View Resort')">Book Now</button></div></div></div>
 
-<div class="col-lg-4 col-md-6 hotel-item" data-city="bali">
-<div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800">
-<div class="hotel-info"><span class="rating">9.5 Excellent</span>
-<h5>Paradise Luxury Hotel</h5><p><i class="bi bi-geo-alt"></i> Bali, Indonesia</p>
-<p>WiFi | Breakfast | Swimming Pool</p>
-<p class="text-success">Free cancellation available</p>
-<span class="price">₹6,800</span> / night
-<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Paradise Luxury Hotel')">Book Now</button>
-</div></div></div>
+<div class="col-lg-4 col-md-6 hotel-item" data-city="bali"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Bali hotel"><div class="hotel-info"><span class="rating">9.5 Excellent</span><h5>Paradise Luxury Hotel</h5><p>Bali, Indonesia</p><p>WiFi | Breakfast | Pool</p><p class="text-success">Free cancellation available</p><span class="price">₹6,800</span> / night<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Paradise Luxury Hotel')">Book Now</button></div></div></div>
 
-<div class="col-lg-4 col-md-6 hotel-item" data-city="dubai">
-<div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800">
-<div class="hotel-info"><span class="rating">9.0 Excellent</span>
-<h5>Grand Palace Hotel</h5><p><i class="bi bi-geo-alt"></i> Dubai, UAE</p>
-<p>WiFi | Parking | Restaurant</p>
-<p class="text-success">Free cancellation available</p>
-<span class="price">₹8,500</span> / night
-<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Grand Palace Hotel')">Book Now</button>
-</div></div></div>
+<div class="col-lg-4 col-md-6 hotel-item" data-city="dubai"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800" alt="Dubai hotel"><div class="hotel-info"><span class="rating">9.0 Excellent</span><h5>Grand Palace Hotel</h5><p>Dubai, UAE</p><p>WiFi | Parking | Restaurant</p><p class="text-success">Free cancellation available</p><span class="price">₹8,500</span> / night<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Grand Palace Hotel')">Book Now</button></div></div></div>
 
-<div class="col-lg-4 col-md-6 hotel-item" data-city="manali">
-<div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800">
-<div class="hotel-info"><span class="rating">8.9 Very Good</span>
-<h5>Mountain Escape Resort</h5><p><i class="bi bi-geo-alt"></i> Manali, India</p>
-<p>WiFi | Mountain View | Restaurant</p>
-<span class="price">₹3,200</span> / night
-<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Mountain Escape Resort')">Book Now</button>
-</div></div></div>
+<div class="col-lg-4 col-md-6 hotel-item" data-city="manali"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800" alt="Manali hotel"><div class="hotel-info"><span class="rating">8.9 Very Good</span><h5>Mountain Escape Resort</h5><p>Manali, India</p><p>WiFi | Mountain View | Restaurant</p><span class="price">₹3,200</span> / night<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Mountain Escape Resort')">Book Now</button></div></div></div>
 
-<div class="col-lg-4 col-md-6 hotel-item" data-city="maldives">
-<div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800">
-<div class="hotel-info"><span class="rating">9.7 Exceptional</span>
-<h5>Blue Lagoon Resort</h5><p><i class="bi bi-geo-alt"></i> Maldives</p>
-<p>Private Beach | WiFi | Spa</p>
-<span class="price">₹12,000</span> / night
-<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Blue Lagoon Resort')">Book Now</button>
-</div></div></div>
+<div class="col-lg-4 col-md-6 hotel-item" data-city="maldives"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800" alt="Maldives hotel"><div class="hotel-info"><span class="rating">9.7 Exceptional</span><h5>Blue Lagoon Resort</h5><p>Maldives</p><p>Beach | WiFi | Spa</p><span class="price">₹12,000</span> / night<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('Blue Lagoon Resort')">Book Now</button></div></div></div>
 
-<div class="col-lg-4 col-md-6 hotel-item" data-city="bangalore">
-<div class="hotel-card">
-<img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800">
-<div class="hotel-info"><span class="rating">9.1 Excellent</span>
-<h5>City Comfort Hotel</h5><p><i class="bi bi-geo-alt"></i> Bangalore, India</p>
-<p>WiFi | Breakfast | Parking</p>
-<span class="price">₹2,800</span> / night
-<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('City Comfort Hotel')">Book Now</button>
-</div></div></div>
+<div class="col-lg-4 col-md-6 hotel-item" data-city="bangalore"><div class="hotel-card"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800" alt="Bangalore hotel"><div class="hotel-info"><span class="rating">9.1 Excellent</span><h5>City Comfort Hotel</h5><p>Bangalore, India</p><p>WiFi | Breakfast | Parking</p><span class="price">₹2,800</span> / night<button class="btn btn-primary w-100 mt-3" onclick="bookHotel('City Comfort Hotel')">Book Now</button></div></div></div>
 
 </div>
 </div>
@@ -279,36 +291,30 @@ footer a:hover{color:#feba02}
 <div class="container">
 <h2 class="section-title text-center">Hotel Facilities</h2>
 <div class="row g-4 mt-3">
-<div class="col-md-3"><div class="facility text-center"><i class="bi bi-wifi fs-1 text-primary"></i><h5>Free WiFi</h5><p>High-speed internet.</p></div></div>
-<div class="col-md-3"><div class="facility text-center"><i class="bi bi-water fs-1 text-primary"></i><h5>Swimming Pool</h5><p>Relax and enjoy.</p></div></div>
-<div class="col-md-3"><div class="facility text-center"><i class="bi bi-cup-hot fs-1 text-primary"></i><h5>Restaurant</h5><p>Delicious meals.</p></div></div>
-<div class="col-md-3"><div class="facility text-center"><i class="bi bi-car-front fs-1 text-primary"></i><h5>Parking</h5><p>Convenient parking.</p></div></div>
+<div class="col-md-3"><div class="facility text-center"><i class="bi bi-wifi"></i><h5>Free WiFi</h5><p>High-speed internet.</p></div></div>
+<div class="col-md-3"><div class="facility text-center"><i class="bi bi-water"></i><h5>Swimming Pool</h5><p>Relax and enjoy.</p></div></div>
+<div class="col-md-3"><div class="facility text-center"><i class="bi bi-cup-hot"></i><h5>Restaurant</h5><p>Delicious meals.</p></div></div>
+<div class="col-md-3"><div class="facility text-center"><i class="bi bi-car-front"></i><h5>Parking</h5><p>Convenient parking.</p></div></div>
 </div>
 </div>
 </section>
 </div>
 
-<!-- ================= PAGE 3 ================= -->
+<!-- PAGE 3 -->
 <div class="page" id="page3">
 
 <section class="inner-hero">
-<div class="container">
-<h1>About Accord</h1>
-<p class="fs-5">Making every journey comfortable and memorable.</p>
-</div>
+<div class="container"><h1>About StayFinder</h1><p>Making every journey comfortable and memorable.</p></div>
 </section>
 
 <section class="section">
 <div class="container">
 <div class="row align-items-center g-5">
-<div class="col-md-6" data-aos="fade-right">
-<img class="img-fluid rounded-4" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=900">
-</div>
-<div class="col-md-6" data-aos="fade-left">
+<div class="col-md-6"><img class="img-fluid rounded-4" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=900" alt="Resort"></div>
+<div class="col-md-6">
 <h2 class="section-title">Who We Are</h2>
-<p>Accord is a hotel booking website concept designed to make travel planning simple, convenient and enjoyable.</p>
+<p>StayFinder is a hotel booking website concept designed to make travel planning simple, convenient and enjoyable.</p>
 <p>We help travellers discover beautiful hotels, compare accommodation options and explore exciting destinations.</p>
-<p>Our goal is to make every trip a memorable experience with comfortable stays and easy hotel discovery.</p>
 <h5>Our Mission</h5>
 <p>To make finding accommodation simple and accessible for every traveller.</p>
 </div>
@@ -319,11 +325,10 @@ footer a:hover{color:#feba02}
 <section class="section bg-light">
 <div class="container">
 <h2 class="section-title text-center">Our Services</h2>
-<p class="section-subtitle text-center">Everything you need for a comfortable trip.</p>
-<div class="row g-4">
-<div class="col-md-4"><div class="info-card text-center"><i class="bi bi-building fs-1 text-primary"></i><h5 class="mt-3">Hotel Reservations</h5><p>Explore hotels and accommodation options for your stay.</p></div></div>
-<div class="col-md-4"><div class="info-card text-center"><i class="bi bi-airplane fs-1 text-primary"></i><h5 class="mt-3">Travel Planning</h5><p>Discover destinations and plan your next adventure.</p></div></div>
-<div class="col-md-4"><div class="info-card text-center"><i class="bi bi-headset fs-1 text-primary"></i><h5 class="mt-3">Customer Support</h5><p>Get assistance with website enquiries and booking questions.</p></div></div>
+<div class="row g-4 mt-3">
+<div class="col-md-4"><div class="info-card text-center"><i class="bi bi-building fs-1 text-primary"></i><h5>Hotel Reservations</h5><p>Explore hotels and accommodation options.</p></div></div>
+<div class="col-md-4"><div class="info-card text-center"><i class="bi bi-airplane fs-1 text-primary"></i><h5>Travel Planning</h5><p>Discover destinations and plan adventures.</p></div></div>
+<div class="col-md-4"><div class="info-card text-center"><i class="bi bi-headset fs-1 text-primary"></i><h5>Customer Support</h5><p>Get help with enquiries and bookings.</p></div></div>
 </div>
 </div>
 </section>
@@ -332,9 +337,9 @@ footer a:hover{color:#feba02}
 <div class="container">
 <h2 class="section-title text-center">Customer Reviews</h2>
 <div class="row g-4 mt-2">
-<div class="col-md-4"><div class="review"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><p class="mt-3">"Wonderful experience. The hotel was beautiful and the website was easy to use."</p><h5>Rahul Sharma</h5><small>India</small></div></div>
-<div class="col-md-4"><div class="review"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><p class="mt-3">"A very useful website for discovering holiday destinations and hotels."</p><h5>Priya Kumar</h5><small>India</small></div></div>
-<div class="col-md-4"><div class="review"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><p class="mt-3">"Great experience and attractive hotel options. Highly recommended."</p><h5>John Mathew</h5><small>India</small></div></div>
+<div class="col-md-4"><div class="review"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><p class="mt-3">Wonderful experience. The hotel was beautiful and the website was easy to use.</p><h5>Rahul Sharma</h5><small>India</small></div></div>
+<div class="col-md-4"><div class="review"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><p class="mt-3">A useful website for discovering holiday destinations and hotels.</p><h5>Priya Kumar</h5><small>India</small></div></div>
+<div class="col-md-4"><div class="review"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><p class="mt-3">Great experience and attractive hotel options.</p><h5>John Mathew</h5><small>India</small></div></div>
 </div>
 </div>
 </section>
@@ -346,7 +351,7 @@ footer a:hover{color:#feba02}
 <h2 class="section-title">Contact Information</h2>
 <p>Have a question? Contact our team.</p>
 <p><i class="bi bi-geo-alt-fill text-primary"></i> Bangalore, Karnataka, India</p>
-<p><i class="bi bi-envelope-fill text-primary"></i> info@Accord.com</p>
+<p><i class="bi bi-envelope-fill text-primary"></i> info@stayfinder.com</p>
 <p><i class="bi bi-telephone-fill text-primary"></i> +91 98765 43210</p>
 <p><i class="bi bi-clock-fill text-primary"></i> Monday - Saturday, 9 AM - 6 PM</p>
 </div>
@@ -370,7 +375,7 @@ footer a:hover{color:#feba02}
 <div class="accordion mt-4" id="faq">
 <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#q1">How can I search for hotels?</button></h2><div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faq"><div class="accordion-body">Visit our home page and enter your destination and travel dates.</div></div></div>
 <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">Can I cancel my booking?</button></h2><div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Cancellation conditions depend on the individual hotel booking policy.</div></div></div>
-<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">How can I contact customer support?</button></h2><div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Use the contact information or message form on this page.</div></div></div>
+<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">How can I contact support?</button></h2><div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Use the contact information or message form on this page.</div></div></div>
 </div>
 </div>
 </section>
@@ -389,13 +394,12 @@ footer a:hover{color:#feba02}
 </div>
 </section>
 
-<!-- EXTENDED FOOTER - SHARED BY ALL THREE PAGES -->
+<!-- EXTENDED FOOTER -->
 <footer>
 <div class="container">
 <div class="row g-4">
-
 <div class="col-lg-3 col-md-6">
-<h4 class="text-warning fw-bold">Accord.</h4>
+<h4 class="text-warning fw-bold">ACCORD.</h4>
 <p>Your trusted travel partner. Explore hotels, discover beautiful destinations and make unforgettable memories.</p>
 <div class="social">
 <a href="#"><i class="bi bi-facebook"></i></a>
@@ -413,7 +417,7 @@ footer a:hover{color:#feba02}
 <a href="#" onclick="showPage(3)">About Us</a>
 <a href="#" onclick="showPage(3)">Contact Us</a>
 <a href="#" onclick="showPage(1)">Special Offers</a>
-<a href="#" onclick="showPage(1)">Popular Destinations</a>
+<a href="#" onclick="showPage(1)">Destinations</a>
 </div>
 
 <div class="col-lg-2 col-md-6">
@@ -438,7 +442,7 @@ footer a:hover{color:#feba02}
 <div class="col-lg-3 col-md-6">
 <h5>Contact Details</h5>
 <p><i class="bi bi-geo-alt"></i> Bangalore, Karnataka, India</p>
-<p><i class="bi bi-envelope"></i> info@Accord.com</p>
+<p><i class="bi bi-envelope"></i> info@accord.com</p>
 <p><i class="bi bi-telephone"></i> +91 98765 43210</p>
 <p><i class="bi bi-clock"></i> Mon-Sat: 9 AM - 6 PM</p>
 <h5 class="mt-3">Payment Methods</h5>
@@ -446,11 +450,10 @@ footer a:hover{color:#feba02}
 <i class="bi bi-wallet2 fs-3 me-2"></i>
 <i class="bi bi-bank fs-3"></i>
 </div>
-
 </div>
 
 <div class="footer-bottom text-center">
-<p>© 2026 Accord. All Rights Reserved.</p>
+<p>© 2026 ACCORD. All Rights Reserved.</p>
 <p>
 <a href="#" onclick="showPage(3)" style="display:inline">Privacy Policy</a> |
 <a href="#" onclick="showPage(3)" style="display:inline">Terms of Service</a> |
@@ -461,16 +464,16 @@ footer a:hover{color:#feba02}
 </div>
 </footer>
 
-<!-- PREVIOUS AND NEXT PAGE NAVIGATION -->
+<!-- PAGE NAVIGATION -->
 <div class="pagination-area">
-<button class="page-number" id="prevBtn" onclick="changePage(-1)"> <i class="bi bi-arrow-left"></i> Previous Page</button>
+<button class="page-number" id="prevBtn" onclick="changePage(-1)">← Previous Page</button>
 <button class="page-number active" id="p1" onclick="showPage(1)">1</button>
 <button class="page-number" id="p2" onclick="showPage(2)">2</button>
 <button class="page-number" id="p3" onclick="showPage(3)">3</button>
-<button class="page-number" id="nextBtn" onclick="changePage(1)">Next Page <i class="bi bi-arrow-right"></i></button>
+<button class="page-number" id="nextBtn" onclick="changePage(1)">Next Page →</button>
 </div>
 
-<!-- SCRIPTS -->
+<!-- JAVASCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
@@ -480,7 +483,7 @@ AOS.init({duration:900,once:true});
 let currentPage=1;
 
 function showPage(n){
- if(n<1 || n>3)return;
+ if(n<1||n>3)return;
 
  currentPage=n;
 
@@ -488,15 +491,14 @@ function showPage(n){
  document.getElementById("page"+n).classList.add("active");
 
  for(let i=1;i<=3;i++){
-   document.getElementById("p"+i).classList.toggle("active",i===n);
+  document.getElementById("p"+i).classList.toggle("active",i===n);
  }
 
  document.getElementById("prevBtn").disabled=(n===1);
  document.getElementById("nextBtn").disabled=(n===3);
 
  document.querySelectorAll(".navbar .nav-link").forEach(a=>a.classList.remove("active"));
- let links=document.querySelectorAll(".navbar .nav-link");
- links[n-1].classList.add("active");
+ document.querySelectorAll(".navbar .nav-link")[n-1].classList.add("active");
 
  window.scrollTo({top:0,behavior:"smooth"});
  document.getElementById("menu").classList.remove("show");
@@ -514,14 +516,12 @@ function searchHotels(){
   let count=0;
   document.querySelectorAll(".hotel-item").forEach(hotel=>{
    let city=hotel.dataset.city;
-   let match=!destination || city.includes(destination) || destination.includes(city);
+   let match=!destination||city.includes(destination)||destination.includes(city);
    hotel.style.display=match?"block":"none";
    if(match)count++;
   });
 
-  if(count===0){
-   alert("No hotels found. Try Goa, Bali, Dubai, Manali, Maldives or Bangalore.");
-  }
+  if(count===0)alert("No hotels found. Try Goa, Bali, Dubai, Manali, Maldives or Bangalore.");
  },200);
 }
 
@@ -538,8 +538,8 @@ function bookHotel(name){
  let checkout=document.getElementById("checkout").value;
  let guests=document.getElementById("guests").value;
 
- if(!checkin || !checkout){
-  alert("Please select check-in and check-out dates on the Home page.");
+ if(!checkin||!checkout){
+  alert("Please select check-in and check-out dates on Home page.");
   showPage(1);
   return;
  }
@@ -549,11 +549,7 @@ function bookHotel(name){
   return;
  }
 
- alert("Hotel: "+name+
- "\nCheck-in: "+checkin+
- "\nCheck-out: "+checkout+
- "\nGuests: "+guests+
- "\n\nDemo booking only. No actual reservation has been made.");
+ alert("Hotel: "+name+"\nCheck-in: "+checkin+"\nCheck-out: "+checkout+"\nGuests: "+guests+"\n\nDemo booking only. No actual reservation has been made.");
 }
 
 function subscribe(event){
@@ -564,11 +560,10 @@ function subscribe(event){
 
 function contactSubmit(event){
  event.preventDefault();
- alert("Thank you for contacting Accord!");
+ alert("Thank you for contacting ACCORD!");
  event.target.reset();
 }
 
-// Start on page 1
 showPage(1);
 </script>
 
